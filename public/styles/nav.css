@@ -1,0 +1,26 @@
+.top-bar {
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  background-color: #4056A1;
+  color: #FFFFFF;
+  padding: 0em 1.5em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+span {
+  font-family: 'Bungee', sans-serif;
+
+}
+
+#top-bar-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  margin: 0;
+}

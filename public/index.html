@@ -59,15 +59,17 @@
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="form-btn">
-          <button class="bttn-material-flat bttn-md" type="submit"> Tweet </button>
-          <!-- <button type="submit">Tweet</button> -->
+          <button class="bttn-material-flat bttn-md" type="submit"> Tweet </button> 
           <output name="counter" class="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
     <article>
-      <div class="tweet">
-        <header>
+      <div id="tweets-container" class="tweet-container">
+        <!-- Tweets will be appended here -->
+      </div>
+      <!-- <div class="tweet"> -->
+        <!-- <header>
           <div id="user">
             <img src="/images/sleep.png" alt="profile"> 
             <p id="user-name">Newton</p>
@@ -82,8 +84,9 @@
             <i class="fa-solid fa-retweet"></i>
             <i class="fa-solid fa-heart"></i>
           </div>
-        </footer>
-      </div>
+        </footer> -->
+      <!-- </div> -->
+    </article>
   </main>
   </body>
 </html>

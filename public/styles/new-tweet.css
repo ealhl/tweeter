@@ -29,7 +29,7 @@ article .tweet header{
   justify-content: space-between;
 }
 
-article {
+article .tweet{
   border: 2px solid #545149;
   padding: 10px;
   height: auto;
@@ -55,13 +55,13 @@ article .tweet #user-ig{
 
 
 article .tweet img{
-  height: 50px;
-  width: 10%;
+  height: 30px;
+  width: 25%;
 }
 
 #comment{
   font-size: 20px;
-  padding: 30px 5px;
+  padding: 50px 5px;
 }
 
 article .tweet footer{

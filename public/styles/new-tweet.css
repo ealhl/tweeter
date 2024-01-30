@@ -36,18 +36,18 @@ article .tweet{
   margin-top: 30px;
 }
 
-article .tweet #user{
+article .tweet .user{
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
-article .tweet #user-name{
+article .tweet .user-name{
   font-size: 20px;
   align-self: center;
 }
 
-article .tweet #user-ig{
+article .tweet .user-ig{
   font-size: 20px;
   align-self: center;
   color: #CED0E2;
@@ -59,7 +59,7 @@ article .tweet img{
   width: 25%;
 }
 
-#comment{
+.comment{
   font-size: 20px;
   padding: 50px 5px;
 }

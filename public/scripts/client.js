@@ -39,16 +39,16 @@ $(document).ready(function () {
     // ... your createTweetElement code
     let $tweet = $(`<article class="tweet">
     <header>
-     <div id="user">
+     <div class="user">
         <img src=${tweet.user.avatars} alt="user avatar">
-        <p id="user-name">${tweet.user.name}</p>
+        <p class="user-name">${tweet.user.name}</p>
       </div>
-      <p id="user-ig"><b>${tweet.user.handle}</b></p>
+      <p class="user-ig"><b>${tweet.user.handle}</b></p>
     </header>
-    <p id="comment">${tweet.content.text}</p>
+    <p class="comment">${tweet.content.text}</p>
     <footer>
       <span>${tweet.created_at}</span>
-      <div id="comment-btn">
+      <div class="comment-btn">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
         <i class="fas fa-heart"></i>

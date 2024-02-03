@@ -1,28 +1,9 @@
 $(document).ready(function () {
-  const data = [
-    {
-      user: {
-        name: "Newton",
-        avatars: "https://i.imgur.com/73hZDYK.png",
-        handle: "@SirIsaac",
-      },
-      content: {
-        text: "If I have seen further it is by standing on the shoulders of giants",
-      },
-      created_at: 1461116232227,
-    },
-    {
-      user: {
-        name: "Descartes",
-        avatars: "https://i.imgur.com/nlhLi3I.png",
-        handle: "@rd",
-      },
-      content: {
-        text: "Je pense , donc je suis",
-      },
-      created_at: 1461113959088,
-    },
-  ];
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
   const renderTweets = function (tweets) {
     // Clear existing tweets in the container
@@ -31,12 +12,14 @@ $(document).ready(function () {
     // Loop through tweets
     tweets.forEach((tweet) => {
       let $tweet = createTweetElement(tweet);
-      $("#tweets-container").append($tweet);
+      $("#tweets-container").prepend($tweet);
     });
   };
 
   const createTweetElement = function (tweet) {
     // ... your createTweetElement code
+    const formattedTimestamp = timeago.format(tweet.created_at);
+
     let $tweet = $(`<article class="tweet">
     <header>
      <div class="user">
@@ -45,9 +28,9 @@ $(document).ready(function () {
       </div>
       <p class="user-ig"><b>${tweet.user.handle}</b></p>
     </header>
-    <p class="comment">${tweet.content.text}</p>
+    <p class="comment">${escape(tweet.content.text)}</p>
     <footer>
-      <span>${tweet.created_at}</span>
+    <span class="time-ago">${formattedTimestamp}</span>
       <div class="comment-btn">
         <i class="fas fa-flag"></i>
         <i class="fas fa-retweet"></i>
@@ -58,6 +41,65 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  // Call renderTweets with your data
-  renderTweets(data);
+  const loadTweets = function () {
+    $.get("/tweets")
+      .done(function (tweets) {
+        console.log("GET request successful", tweets);
+        renderTweets(tweets);
+      })
+      .fail(function (error) {
+        console.error("Error loading tweets", error);
+      });
+  };
+
+  //Validate tweet content before submitting
+  //Check if the tweet content is empty or too long
+  const validateTweet = function (tweetText) {
+    console.log("tweetText", tweetText);
+    console.log("tweetText.length", tweetText.length);
+    const maxLength = 145;
+
+    if (!tweetText || tweetText.length === 5 || tweetText.length < 5) {
+      return { error: true, message: "Tweet content is empty." };
+    }
+
+    if (tweetText.length > maxLength) {
+      return { error: true, message: "Tweet content is too long." };
+    }
+
+    return { error: false, message: "" };
+  };
+
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+    const data = $(this).serialize();
+    const validationResult = validateTweet(data);
+
+    // Get the error message container
+    const $errorMessageContainer = $(".error-message");
+
+    if (validationResult.error) {
+      $errorMessageContainer.text(validationResult.message);
+      $errorMessageContainer.slideDown();
+      return; // Stop further execution
+    }
+
+    $errorMessageContainer.empty().slideUp();
+
+    $.post("/tweets", data)
+      .done(function (response) {
+        // Handle the success response from the server
+        console.log("POST request successful", response);
+        loadTweets();
+        $("#tweet-text").val("");
+        $("#counter").val("140");
+      })
+      .fail(function (error) {
+        // Handle errors during the POST request
+        console.error("Error submitting POST request", error);
+      });
+  });
+
+  // Call renderTweets initially with your existing tweet data
+  loadTweets();
 });

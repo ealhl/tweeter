@@ -26,6 +26,8 @@
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer" type="text/javascript"></script>
+    
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
@@ -54,13 +56,13 @@
   </header>
   <main class="container">
     <section class="new-tweet">
-      <h2>Compose Tweet</h2>
+      <div class="error-message" style="display: none;"></div>
       <form>
-        <label for="tweet-text">What are you humming about?</label>
+        <label for="tweet-text" id="tweet-question"><b>What are you humming about?</b></label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="form-btn">
           <button class="bttn-material-flat bttn-md" type="submit"> Tweet </button> 
-          <output name="counter" class="counter" for="tweet-text">140</output>
+          <output name="counter" class="counter" id="counter" for="tweet-text">140</output>
         </div>
       </form>
     </section>
@@ -68,24 +70,6 @@
       <div id="tweets-container" class="tweet-container">
         <!-- Tweets will be appended here -->
       </div>
-      <!-- <div class="tweet"> -->
-        <!-- <header>
-          <div id="user">
-            <img src="/images/sleep.png" alt="profile"> 
-            <p id="user-name">Newton</p>
-          </div>
-            <p id="user-ig"><b>@MrsJascobs</b</p>
-        </header>
-        <p id="comment">If I have seen further it is by standing on the shoulders of giants</p>
-        <footer>
-          <p>10 days ago</p>
-          <div id="comment-btn">
-            <i class="fa-solid fa-flag"></i>
-            <i class="fa-solid fa-retweet"></i>
-            <i class="fa-solid fa-heart"></i>
-          </div>
-        </footer> -->
-      <!-- </div> -->
     </article>
   </main>
   </body>

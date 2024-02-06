@@ -56,6 +56,10 @@ main {
     width: 100%
   }
 
+  .container {
+   max-width: 50vw;
+  }
+
   #body-header h2 {
     font-size: 1em;
   }

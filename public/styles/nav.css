@@ -1,7 +1,9 @@
 .top-bar {
   height: 120px;
   width: 100%;
-  position: fixed;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 0em 1.5em;

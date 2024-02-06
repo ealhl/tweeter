@@ -23,6 +23,7 @@ form {
   font-family: 'Bungee', sans-serif;
   font-size: smaller;
   margin-top: 10px;
+  z-index: 1; 
 }
 
 article .tweet header{
@@ -56,14 +57,16 @@ article .tweet .user-ig{
 }
 
 
-article .tweet img{
+article .tweet .user img{
   height: 30px;
-  width: 25%;
+  width: 35px;
 }
 
 .comment{
   font-size: 20px;
   padding: 50px 5px;
+  overflow-wrap: break-word;
+  /* white-space: initial; */
 }
 
 textarea{

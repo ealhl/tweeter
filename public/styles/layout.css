@@ -30,3 +30,37 @@ main {
   margin: 0 auto;
   align-items: center; 
 }
+
+@media only screen and (min-width: 768px) {
+
+  #body-section{
+    display: flex;
+    justify-content: space-around;
+    padding-top: 120px;
+  }
+
+  #body-header{
+    position: center;
+    margin: 50px;
+  }
+
+  #tweet-question{
+    margin-top: 0px;
+  }
+  form button {
+    z-index: 1; 
+  }
+
+  main{
+    margin: 50px;
+    width: 100%
+  }
+
+  #body-header h2 {
+    font-size: 1em;
+  }
+
+  article .tweet .user{
+    gap: 2px;
+  }
+}

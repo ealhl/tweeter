@@ -15,6 +15,7 @@ form {
   color: red; 
 }
 
+
 .form-btn {
   display: flex;
   flex-direction: row;
@@ -98,6 +99,11 @@ article .tweet i:hover{
   color: rgb(186,149,64);
   box-shadow: 10px;
 }
+
+article .tweet:hover{
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+}
+
 
 .error-message{
   margin-top: 10px;
